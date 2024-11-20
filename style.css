@@ -10,3 +10,82 @@ Text Domain: Comet
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+
+.post-body iframe {
+	width: 100% !important;
+	max-height: 200px !important;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+.pagination .nav-links a, .pagination .nav-links span.current {
+	display: inline-block;
+	padding: 10px;
+
+}
+
+.pagination .nav-links a.prev,
+.pagination .nav-links a.next {
+	color: black;
+}
+
+.pagination .nav-links a.prev:hover,
+.pagination .nav-links a.next:hover {
+	color: white;
+	background: black;
+}
+
+.pagination .nav-links span.current {
+	background: #F25375;
+}
+
+.pagination .nav-links span.current:hover,
+.pagination .nav-links a:hover {
+	background: #000000;
+	color: white;
+}
+
+.widget ul {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+
+.widget ul > li > a {
+	padding: 12px 0;
+	border-bottom: 1px solid #e7e7e7;
+	letter-spacing: 1px;
+}
+
+.widget ul > li > span {
+	display: block;
+	color: #79818a;
+	margin-top: 5px;
+	font-size: 12px;
+}
+
+.widget .tagcloud a {
+	display: block;
+	float: left;
+	padding: 10px 15px;
+	border: 1px solid #191b1d;
+	margin: 0 10px 10px 0;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	font-weight: 500;
+}
+
+.widget .tagcloud {
+	overflow: hidden;
+}
+
+.widget .tagcloud a:hover {
+  background-color: #EF2D56;
+  border-color: #EF2D56;
+  color: #fff;
+}

@@ -10,7 +10,7 @@
 
 // theme setup functions
 
-add_action('after_theme_setup', 'comet_functions');
+add_action('after_setup_theme', 'comet_functions');
 
 function comet_functions(){
 
@@ -20,9 +20,9 @@ function comet_functions(){
 
 	// theme supports
 
-	add_theme_support('post_thumbnails');
+	add_theme_support('post-thumbnails');
 
-	add_theme_support('title_tag');
+	add_theme_support('title-tag');
 
 	add_theme_support('post-formats', array(
 		'video',
@@ -30,7 +30,6 @@ function comet_functions(){
 		'quote',
 		'gallery'
 	));
-
 
 }
 
@@ -71,6 +70,8 @@ function comet_styles(){
 
 	wp_enqueue_style('fonts', get_comet_fonts());
 
+	wp_enqueue_style('stylesheet', get_stylesheet_uri());
+
 
 
 
@@ -88,16 +89,39 @@ function conditional_scripts(){
 	wp_script_add_data('respond', 'conditional', 'lt IE 9');
 }
 
+add_action('widgets_init', 'sidebar_areas');
+
+function sidebar_areas(){
+	register_sidebar(array(
+		'name' 			=> __('Right Sidebar', 'comet'),
+		'id' 			=> 'right-sidebar',
+		'description' 	=> __('You may add your Right Sidebar Widgets Here', 'comet'),
+		'before_widget'	=> '<div class="widget">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h6 class="upper">',
+		'after_title'	=> '</h6>'
+				
+	));
+}
 
 add_action('wp_enqueue_scripts', 'comet_scripts');
 
 function comet_scripts(){
-
 	
-
 	wp_enqueue_script('bundle', get_template_directory_uri().'/js/bundle.js', array('jquery'), '', true);
 
 	wp_enqueue_script('google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp', array('jquery'), '', true);
 
 	wp_enqueue_script('main', get_template_directory_uri().'/js/main.js', array('jquery', 'bundle'), '', true);
+}
+
+if( file_exists( dirname( __FILE__ ) . '/gallery.php' ) ) {
+
+	require_once( dirname( __FILE__ ) . '/gallery.php' );
+}
+
+
+if( file_exists( dirname( __FILE__ ) . '/custom-widgets/latest-post.php' ) ) {
+
+	require_once( dirname( __FILE__ ) . '/custom-widgets/latest-post.php' );
 }

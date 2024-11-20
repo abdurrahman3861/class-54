@@ -4,11 +4,10 @@
     <h6 class="upper"><span>By</span><a href="<?php the_author(); ?>"> <?php the_author(); ?></a><span class="dot"></span><span><?php the_time('d F Y'); ?></span><span class="dot"></span><?php the_tags(); ?></h6>
   </div>
 
-
-
+  
   <div class="post-body">
-    <?php the_content(); ?>
-    <p><a href="<?php the_permalink(); ?>" class="btn btn-color btn-sm">Read More</a></p>
+    <blockquote class="italic">
+      <?php the_content(); ?>
+    </blockquote>
   </div>
 </article>
-
